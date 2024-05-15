@@ -6,7 +6,7 @@ import { Poppins } from 'next/font/google'
 import { notFound } from 'next/navigation'
 import { NextIntlClientProvider } from 'next-intl'
 import { getTranslations } from 'next-intl/server'
-import { ReactNode, Suspense } from 'react'
+import { ReactNode } from 'react'
 
 import { Footer } from '@/components/common/Footer'
 import { Header } from '@/components/common/Header'
@@ -105,28 +105,28 @@ export default async function RootLayout({
   return (
     <html lang={process.env.NEXT_PUBLIC_TENANT_LOCALE}>
       <body className={clsxBody}>
-          <Providers translations={generalData}>
-            <NextIntlClientProvider
-              locale={process.env.NEXT_PUBLIC_TENANT_LOCALE}
-              messages={messages}
-            >
-              <div className="relative z-50 min-h-14 lg:min-h-[92px]">
-                <Header
-                  logo={logoUrl}
-                  logoDark={logoDarkUrl}
-                  linksObject={headerLinks}
-                />
-              </div>
-              {children}
-              <Footer
-                logo={footerlogoUrl}
-                className="mt-auto"
-                linksObject={footerLinks}
-                rightsText={footerData?.rightsText}
+        <Providers translations={generalData}>
+          <NextIntlClientProvider
+            locale={process.env.NEXT_PUBLIC_TENANT_LOCALE}
+            messages={messages}
+          >
+            <div className="relative z-50 min-h-14 lg:min-h-[92px]">
+              <Header
+                logo={logoUrl}
+                logoDark={logoDarkUrl}
+                linksObject={headerLinks}
               />
-              <Toaster />
-            </NextIntlClientProvider>
-          </Providers>
+            </div>
+            {children}
+            <Footer
+              logo={footerlogoUrl}
+              className="mt-auto"
+              linksObject={footerLinks}
+              rightsText={footerData?.rightsText}
+            />
+            <Toaster />
+          </NextIntlClientProvider>
+        </Providers>
       </body>
       <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || ''} />
       <Hotjar />
