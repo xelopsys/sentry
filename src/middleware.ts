@@ -11,11 +11,7 @@ const nextIntlMiddleware = createMiddleware({
 })
 
 export const config = {
-  matcher: [
-    '/',
-    '/(de|en)/:path*',
-    '/((?!api|opengraph-image|_next|_hive|.*\\..*).*)',
-  ],
+  matcher: ['/'],
 }
 
 export default function middleware(req: NextRequest): NextResponse {
