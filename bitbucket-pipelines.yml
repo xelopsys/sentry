@@ -1,0 +1,64 @@
+image: node:18
+
+definitions:
+  services:
+    docker:
+      memory: 3072
+  steps:
+    - step: &build-step
+        name: Build and deploy
+        script:
+          - apt-get update && apt-get install gettext-base
+          - envsubst < scripts/launch.sh > deploy-out.sh
+          - cat deploy-out.sh
+          - >
+            docker build . -t $AWS_ECR_REPOSITORY
+            --build-arg NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=$NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
+            --build-arg NEXT_PUBLIC_GOOGLE_MAPS_MAP_ID=$NEXT_PUBLIC_GOOGLE_MAPS_MAP_ID
+            --build-arg NEXT_PUBLIC_TENANT_ID=$NEXT_PUBLIC_TENANT_ID
+            --build-arg TENANT_API_TOKEN=$TENANT_API_TOKEN
+            --build-arg NEXT_PUBLIC_TENANT_LOCALE=$NEXT_PUBLIC_TENANT_LOCALE
+            --build-arg NEXT_PUBLIC_TENANT_AID=$NEXT_PUBLIC_TENANT_AID
+            --build-arg NEXT_PUBLIC_SITE_URL=$NEXT_PUBLIC_SITE_URL
+            --build-arg NEXT_PUBLIC_API_BASE_URL=$NEXT_PUBLIC_API_BASE_URL
+            --build-arg NEXT_PUBLIC_DEFAULT_CURRENCY=$NEXT_PUBLIC_DEFAULT_CURRENCY
+            --build-arg NEXT_PUBLIC_GA_ID=$NEXT_PUBLIC_GA_ID
+            --build-arg NEXT_PUBLIC_HOTJAR_ID=$NEXT_PUBLIC_HOTJAR_ID
+            --build-arg NEXT_PUBLIC_LOCATIONS_PATH=$NEXT_PUBLIC_LOCATIONS_PATH
+          - pipe: atlassian/aws-ecr-push-image:1.1.0
+            variables:
+              AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+              AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+              AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
+              IMAGE_NAME: $AWS_ECR_REPOSITORY
+          - pipe: atlassian/ssh-run:0.4.0
+            variables:
+              SSH_USER: 'ubuntu'
+              SERVER: $HOST
+              SSH_KEY: $SSH_KEY
+              MODE: 'script'
+              COMMAND: 'deploy-out.sh'
+              DEBUG: 'true'
+              ENV_VARS: >-
+                AWS_DEFAULT_REGION=${AWS_DEFAULT_REGION}
+                AWS_ECR_REGISTRY_URL=${AWS_ECR_REGISTRY_URL}
+                AWS_ECR_REPOSITORY=${AWS_ECR_REPOSITORY}
+                APP_PORT=${APP_PORT}
+
+pipelines:
+  branches:
+    develop:
+      - step:
+          <<: *build-step
+          name: Building and deploying Dev
+          deployment: Development
+    release/hotelbijstadion-nl:
+      - step:
+          <<: *build-step
+          name: Building and deploying hotelbijstadion.nl
+          deployment: hotelbijstadion-nl
+    release/baseballhotels-com:
+      - step:
+          <<: *build-step
+          name: Building and deploying baseballhotels.com
+          deployment: baseballhotels-com

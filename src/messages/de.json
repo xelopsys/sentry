@@ -1,0 +1,73 @@
+{
+  "links": {
+    "about": "Über uns",
+    "contact": "Kontakt",
+    "privacy": "Datenschutz & Richtlinien"
+  },
+  "searchBar": {
+    "whereGoing": "Wohin gehen Sie?",
+    "dateInputPlaceholder": "Flexible Daten",
+    "dateTitle": "Wählen Sie die Daten",
+    "chooseDates": "Wählen Sie Daten",
+    "chooseGuests": "Wählen Sie die Anzahl der Gäste",
+    "guestsTemplate": "{guestCount} Gäste",
+    "guestInput": "Gäste",
+    "select": "Auswählen",
+    "clear": "Leeren",
+    "search": "Suche",
+    "errors": {
+      "query": "Bitte wählen Sie einen Vorschlag aus"
+    }
+  },
+  "featuredLocations": {
+    "locationTemplate": "Hotels in der Nähe von {locationTitle}",
+    "showMore": "Mehr anzeigen",
+    "showLess": "Weniger anzeigen"
+  },
+  "locationTranslations": {
+    "filterText": "{hotelsCount}+ Hotels im Umkreis von 5 Meilen von {locationTitle} gefunden",
+    "sortOrder": "Sortierreihenfolge",
+    "mostBooked": "Am meisten gebucht",
+    "topRated": "Am besten bewertet",
+    "priceAsc": "Preis: Aufsteigend",
+    "priceDesc": "Preis: Absteigend",
+    "showMore": "Mehr anzeigen",
+    "showLess": "Weniger anzeigen",
+    "minutesWalking": "{spentTime} min zu Fuß",
+    "minutesDriving": "{spentTime} min Autofahrt",
+    "distanceAsc": "Nächstgelegene",
+    "whereText": "von {locationTitle}"
+  },
+  "hotelTranslations": {
+    "amenitiesTitle": "Annehmlichkeiten",
+    "amenitiesShowMore": "Alle Annehmlichkeiten anzeigen",
+    "amenitiesShowLess": "Weniger Annehmlichkeiten anzeigen",
+    "mapTitle": "Karte",
+    "hotelListTitle": "Andere Hotels in der Nähe von {locationTitle}",
+    "reviewsTemplate": "{reviewsCount} Bewertungen",
+    "bookingWidget": {
+      "title": "Hotelverfügbarkeit überprüfen",
+      "priceFromText": "ab {hotelPrice}",
+      "unitText": "pro Nacht",
+      "buttonLabel": "Verfügbarkeit überprüfen",
+      "ratesText": "Preise"
+    }
+  },
+  "contactForm": {
+    "name": "Geben Sie Ihren Namen ein",
+    "email": "E-Mail",
+    "subject": "Geben Sie das Thema Ihrer Anfrage ein",
+    "message": "Nachricht",
+    "buttonLabel": "Kontaktieren Sie uns"
+  },
+  "formMessages": {
+    "successTitle": "Nachricht gesendet",
+    "successDescription": "Nachricht erfolgreich zugestellt",
+    "errorTitle": "Fehler aufgetreten",
+    "errorDescription": "Fehler beim Senden der Nachricht"
+  },
+  "richTextTranslations": {
+    "showMore": "Mehr anzeigen",
+    "showLess": "Weniger anzeigen"
+  }
+}

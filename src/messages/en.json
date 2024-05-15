@@ -1,0 +1,73 @@
+{
+  "links": {
+    "about": "About us",
+    "contact": "Contact",
+    "privacy": "Privacy & Policy"
+  },
+  "searchBar": {
+    "whereGoing": "Where are you going?",
+    "dateInputPlaceholder": "Flexible dates",
+    "dateTitle": "Pick the dates",
+    "chooseDates": "Choose dates",
+    "chooseGuests": "Choose amount of guests",
+    "guestsTemplate": "{guestCount} guests",
+    "guestInput": "Guests",
+    "select": "Select",
+    "clear": "Clear",
+    "search": "Search",
+    "errors": {
+      "query": "Please, pick one of suggestions"
+    }
+  },
+  "featuredLocations": {
+    "locationTemplate": "Hotels near {locationTitle}",
+    "showMore": "Show more",
+    "showLess": "Show less"
+  },
+  "locationTranslations": {
+    "filterText": "{hotelsCount}+ hotels found within 5 miles radius of {locationTitle}",
+    "sortOrder": "Sort order",
+    "mostBooked": "Most booked",
+    "topRated": "Top rated",
+    "priceAsc": "Price: Low to High",
+    "priceDesc": "Price: High to Low",
+    "showMore": "Show more",
+    "showLess": "Show less",
+    "minutesWalking": "{spentTime} min walking",
+    "minutesDriving": "{spentTime} min driving",
+    "distanceAsc": "Closest",
+    "whereText": "from {locationTitle}"
+  },
+  "hotelTranslations": {
+    "amenitiesTitle": "Amenities",
+    "amenitiesShowMore": "Show all amenities",
+    "amenitiesShowLess": "Show less amenities",
+    "mapTitle": "Map",
+    "hotelListTitle": "Other hotels near {locationTitle}",
+    "reviewsTemplate": "{reviewsCount} reviews",
+    "bookingWidget": {
+      "title": "Check hotel availability",
+      "priceFromText": "from {hotelPrice}",
+      "unitText": "per night",
+      "buttonLabel": "Check availability",
+      "ratesText": "Rates"
+    }
+  },
+  "contactForm": {
+    "name": "Enter your name",
+    "email": "E-mail",
+    "subject": "Enter the subject of your inquiry",
+    "message": "Message",
+    "buttonLabel": "Contact us"
+  },
+  "formMessages": {
+    "successTitle": "Message sent",
+    "successDescription": "Message delivered successfully",
+    "errorTitle": "Error occured",
+    "errorDescription": "Error with sending message"
+  },
+  "richTextTranslations": {
+    "showMore": "Show more",
+    "showLess": "Show less"
+  }
+}
